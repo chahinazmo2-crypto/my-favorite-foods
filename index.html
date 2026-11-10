@@ -1,97 +1,345 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
+<title>My Favorite Foods</title>
+
 <style>
 body {
     background-color: #FFF3E0;
     font-family: Arial;
-}h1 {
-color: #8B4513;
-text-align: center;
-font-family:cursive;
+}
+
+h1 {
+    color: #8B4513;
+    text-align: center;
+    font-family: cursive;
 }
 
 h2 {
-color: #E67E22;
-font-family:cursive;
-}
-
-img {
-width: 250px;
-border-radius: 15px;
+    color: #E67E22;
+    font-family: cursive;
 }
 
 .menu {
-display: flex;
-flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .food {
-width: 30%;
-margin: 10px;
-box-sizing: border-box;
+    width: 30%;
+    margin: 10px;
+    box-sizing: border-box;
 }
 
 .food img {
-width: 100%;
-height: 180px;
-object-fit: cover;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+    cursor: pointer;
 }
+
 p {
     text-align: center;
     color: black;
     font-size: 22px;
 }
+
 .food p {
     font-size: 14px;
     font-family: Arial;
-    color: black;
 }
+
 .author {
     text-align: center;
 }
-</style>
 
-<title>My favorite foods</title>
-</head><body><h1><i>My favorite foods</i></h1>
-<p>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓜𝔂 𝓕𝓸𝓸𝓭 𝓜𝓮𝓷𝓾 :)</p><div class="menu"><div class="food">
+/* Recipe window */
+
+.recipe {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    overflow: auto;
+    z-index: 10;
+}
+
+.recipe:target {
+    display: block;
+}
+
+.recipe-content {
+    background: #FFF3E0;
+    width: 70%;
+    margin: 5% auto;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.recipe-content h2 {
+    text-align: center;
+}
+
+.recipe-content h3 {
+    color: #8B4513;
+}
+
+.close {
+    float: right;
+    font-size: 25px;
+    text-decoration: none;
+    color: #8B4513;
+    font-weight: bold;
+}
+
+.recipe-content p {
+    font-size: 16px;
+    text-align: left;
+    line-height: 1.6;
+}
+
+.recipe-content li {
+    margin: 8px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1><i>My Favorite Foods</i></h1>
+
+<p>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓜𝔂 𝓕𝓸𝓸𝓭 𝓜𝓮𝓷𝓾 :)</p>
+
+<div class="menu">
+
+<div class="food">
 <h2><i>Pizza</i></h2>
-    <a href="https://share.google/45Wv48GgrPRXfVc4h" target="_blank">
-    <img src="pizza.jpg" width="250">
-    </a>
+<a href="#pizza">
+<img src="pizza.jpg">
+</a>
 <p>~ Delicious pizza with melted cheese.~</p>
-</div><div class="food">
-<h2><i>shawarma</i></h2>
-    <a href="https://share.google/22SVXj7MzDncgepB4" target="_blank">
-    <img src="shawarma.jpg" width="250">
-    </a>
+</div>
+
+<div class="food">
+<h2><i>Shawarma</i></h2>
+<a href="#shawarma">
+<img src="shawarma.jpg">
+</a>
 <p>~ Tasty shawarma with delicious sauce.~</p>
-</div><div class="food">
-<h2><i>potato-bechamel</i></h2>
-    <a href="https://share.google/vJc0431n0O9KHkAvj" target="_blank">
-    <img src="potato-bechamel.jpg" width="250">
-    </a>
+</div>
+
+<div class="food">
+<h2><i>Potato Bechamel</i></h2>
+<a href="#potato">
+<img src="potato-bechamel.jpg">
+</a>
 <p>~ Creamy potatoes baked with delicious béchamel sauce.~</p>
-</div><div class="food">
-<h2><i>double-cheeseburger</i></h2>
-    <a href="https://share.google/diLfVhqID26AD29JO" target="_blank">
-    <img src="DoubleCheeseburger.jpg" width="250">
-    </a>
+</div>
+
+<div class="food">
+<h2><i>Double Cheeseburger</i></h2>
+<a href="#burger">
+<img src="DoubleCheeseburger.jpg">
+</a>
 <p>~ A juicy burger with two patties and melted cheese.~</p>
-</div><div class="food">
-<h2><i>potato-balls</i></h2>
-    <a href="https://share.google/k4MErgwz4CJE3LNXK" target="_blank">
-    <img src="potato-balls.jpg" width="250">
-    </a>
+</div>
+
+<div class="food">
+<h2><i>Potato Balls</i></h2>
+<a href="#balls">
+<img src="potato-balls.jpg">
+</a>
 <p>~ Crispy potato balls with a soft and tasty center.~</p>
-</div><div class="food">
-<h2><i>french fries</i></h2>
-    <a href="https://share.google/ksof2h86VI4wNuSJR" target="_blank">
-    <img src="french fries.jpg" width="250">
-    </a>
+</div>
+
+<div class="food">
+<h2><i>French Fries</i></h2>
+<a href="#fries">
+<img src="french fries.jpg">
+</a>
 <p>~ Golden and crispy fries, perfect for any meal.~</p>
-</div></div>
+</div>
+
+</div>
+
+<!-- Pizza Recipe -->
+<div id="pizza" class="recipe">
+<div class="recipe-content">
+<a href="#" class="close">×</a>
+<h2>Pizza Recipe 🍕</h2>
+<h3>Ingredients:</h3>
+<ul>
+<li>2 cups of flour</li>
+<li>1 teaspoon of yeast</li>
+<li>1 teaspoon of sugar</li>
+<li>3/4 cup of warm water</li>
+<li>2 tablespoons of olive oil</li>
+<li>Tomato sauce</li>
+<li>Mozzarella cheese</li>
+<li>Olives and oregano</li>
+</ul>
+<h3>Preparation:</h3>
+<p>
+1. Mix flour, yeast, sugar and warm water.<br>
+2. Add olive oil and knead the dough.<br>
+3. Let the dough rest for 1 hour.<br>
+4. Spread the dough and add tomato sauce.<br>
+5. Add cheese, olives and oregano.<br>
+6. Bake at 200°C for 15-20 minutes.
+</p>
+</div>
+</div>
+
+<!-- Shawarma Recipe -->
+<div id="shawarma" class="recipe">
+<div class="recipe-content">
+<a href="#" class="close">×</a>
+<h2>Chicken Shawarma Recipe 🌯</h2>
+<h3>Ingredients:</h3>
+<ul>
+<li>300 g of chicken breast</li>
+<li>2 tablespoons of yogurt</li>
+<li>1 tablespoon of lemon juice</li>
+<li>2 cloves of garlic</li>
+<li>1 teaspoon of paprika</li>
+<li>1/2 teaspoon of cumin</li>
+<li>Salt and pepper</li>
+<li>Pita bread and garlic sauce</li>
+</ul>
+<h3>Preparation:</h3>
+<p>
+1. Cut the chicken into thin strips.<br>
+2. Mix yogurt, lemon juice, garlic and spices.<br>
+3. Add chicken and marinate for 30 minutes.<br>
+4. Cook the chicken in a pan until golden.<br>
+5. Put chicken in pita bread.<br>
+6. Add garlic sauce and vegetables, then serve.
+</p>
+</div>
+</div>
+
+<!-- Potato Bechamel Recipe -->
+<div id="potato" class="recipe">
+<div class="recipe-content">
+<a href="#" class="close">×</a>
+<h2>Potato Bechamel Recipe 🥔</h2>
+<h3>Ingredients:</h3>
+<ul>
+<li>4 potatoes</li>
+<li>2 tablespoons of butter</li>
+<li>2 tablespoons of flour</li>
+<li>2 cups of milk</li>
+<li>1 cup of grated cheese</li>
+<li>Salt and black pepper</li>
+</ul>
+<h3>Preparation:</h3>
+<p>
+1. Peel and slice the potatoes.<br>
+2. Boil them until slightly tender.<br>
+3. Melt butter in a pan and add flour.<br>
+4. Gradually add milk while stirring.<br>
+5. Add salt and pepper to the sauce.<br>
+6. Place potatoes in a baking dish.<br>
+7. Pour the béchamel sauce over them.<br>
+8. Add cheese and bake at 180°C for 20 minutes.
+</p>
+</div>
+</div>
+
+<!-- Burger Recipe -->
+<div id="burger" class="recipe">
+<div class="recipe-content">
+<a href="#" class="close">×</a>
+<h2>Double Cheeseburger Recipe 🍔</h2>
+<h3>Ingredients:</h3>
+<ul>
+<li>2 burger buns</li>
+<li>2 beef patties (about 100 g each)</li>
+<li>2 slices of cheddar cheese</li>
+<li>1 tomato</li>
+<li>Lettuce leaves</li>
+<li>2 tablespoons of mayonnaise</li>
+<li>Salt and pepper</li>
+</ul>
+<h3>Preparation:</h3>
+<p>
+1. Season the beef patties with salt and pepper.<br>
+2. Cook them in a hot pan until fully cooked.<br>
+3. Add cheddar cheese on top.<br>
+4. Toast the burger buns.<br>
+5. Spread mayonnaise on the buns.<br>
+6. Add lettuce, tomato and the two patties.<br>
+7. Close the burger and serve.
+</p>
+</div>
+</div>
+
+<!-- Potato Balls Recipe -->
+<div id="balls" class="recipe">
+<div class="recipe-content">
+<a href="#" class="close">×</a>
+<h2>Crispy Potato Balls Recipe 🥔</h2>
+<h3>Ingredients:</h3>
+<ul>
+<li>3 large potatoes</li>
+<li>1/2 cup of grated cheese</li>
+<li>1 egg</li>
+<li>1/2 cup of breadcrumbs</li>
+<li>2 tablespoons of flour</li>
+<li>Salt and pepper</li>
+<li>Oil for frying</li>
+</ul>
+<h3>Preparation:</h3>
+<p>
+1. Boil the potatoes until soft.<br>
+2. Mash them in a bowl.<br>
+3. Add cheese, salt and pepper.<br>
+4. Shape the mixture into small balls.<br>
+5. Dip each ball in flour, beaten egg and breadcrumbs.<br>
+6. Fry until golden and crispy.<br>
+7. Serve warm.
+</p>
+</div>
+</div>
+
+<!-- French Fries Recipe -->
+<div id="fries" class="recipe">
+<div class="recipe-content">
+<a href="#" class="close">×</a>
+<h2>French Fries Recipe 🍟</h2>
+<h3>Ingredients:</h3>
+<ul>
+<li>4 large potatoes</li>
+<li>Oil for frying</li>
+<li>Salt</li>
+</ul>
+<h3>Preparation:</h3>
+<p>
+1. Peel and wash the potatoes.<br>
+2. Cut them into thin strips.<br>
+3. Soak them in cold water for 20 minutes.<br>
+4. Drain and dry them well.<br>
+5. Heat oil in a frying pan.<br>
+6. Fry the potatoes until golden and crispy.<br>
+7. Add salt and serve hot.
+</p>
+</div>
+</div>
+
 <p>Good food, good mood! ♡</p>
-<p class="author">𝙲𝚑𝚊𝚑𝚛𝚊𝚣𝚊𝚍 𝙼𝚘𝚜𝚋𝚊𝚑</p>
+
+<p class="author">
+𝙲𝚑𝚊𝚑𝚛𝚊𝚣𝚊𝚍 𝙼𝚘𝚜𝚋𝚊𝚑
+</p>
+
 </body>
-</html>
+    </html>
+    
+
+    
